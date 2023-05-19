@@ -20,7 +20,7 @@ const AddToys = () => {
         const photo = Form.photo.value;
         const addItems ={email, name, description, price,rating, subcategory,seller_name,photo};
 
-        fetch("http://localhost:5000/toyCar", {
+        fetch("https://assingment-11-serversit-yahiamasud.vercel.app/toyCar", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(addItems),
@@ -98,7 +98,6 @@ const AddToys = () => {
                             <div className=" mx-auto mt-6">
                             <button className="btn btn-block">Add Toysar</button>
                             </div>
-
                         </Form>
                         
 
@@ -106,7 +105,6 @@ const AddToys = () => {
                 </div>
             </div>
         </div>
-
     );
 };
 
