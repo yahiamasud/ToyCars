@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
-
+import "./MyTable.css"
 
 const MyTable = ({myTo, handleDalate, index}) => {
     const {picture_url,name, email, price, rating,_id}=myTo;
     return (
             <tr>
                 <td>{index +1 }</td>
-                <td><img src={picture_url} alt=""/></td>
+                <td><img className="imgitemsshow" src={picture_url} alt=""/></td>
                 <td>{name}</td>
                 <td>{email}</td>
                 <td>{price}</td>

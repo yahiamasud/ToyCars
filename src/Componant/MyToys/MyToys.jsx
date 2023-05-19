@@ -17,8 +17,8 @@ const MyToys = () => {
                 // console.log(data);
                 setMyToy(data)
             })
-    }, [ ])
-    console.log(_id)
+    }, [url])
+    
 
     const handleDalate = id =>{
         const proceed = confirm("are you sure you want to dataled");
@@ -29,7 +29,7 @@ const MyToys = () => {
             .then(res=>res.json())
             .then(data =>{
                 if (data.deletedCount > 0){
-                    alert("delete ok")
+                    alert("Delete Confiorm ok now ")
                     const  remaining =toyCar.filter(toyCar._id !== id);
                     setMyToy(remaining);
                 }

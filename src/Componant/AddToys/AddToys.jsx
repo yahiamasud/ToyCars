@@ -10,16 +10,15 @@ const AddToys = () => {
     const handlePost = (event) => {
         event.preventDefault();
         const Form = event.target;
-        
         const email = user.email;
         const name = Form.name.value;
         const subcategory =  Form.subcategory.value
         const seller_name = Form.seller_name.value;
         const description = Form.description.value;
+        const price = Form.price.value;
         const rating = Form.rating.value;
         const picture_url = Form.photo.value;
-
-        const addItems ={email, name, description, picture_url ,rating, subcategory,seller_name,photo};
+        const addItems ={email, name, description, price,rating, subcategory,seller_name,picture_url};
 
         fetch("https://assingment-11-serversit-yahiamasud.vercel.app/toyCar", {
             method: "POST",
@@ -29,7 +28,10 @@ const AddToys = () => {
             .then((res) => res.json())
             .then((result) => {
                 console.log(result);
+                Form.reset();
+                alert("add ok ")
             });
+            
        
     }
 
