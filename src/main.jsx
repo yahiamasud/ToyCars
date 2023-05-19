@@ -17,7 +17,7 @@ import MyToys from './Componant/MyToys/MyToys';
 import AddToys from './Componant/AddToys/AddToys';
 import AllToys from './Componant/AllToys/AllToys';
 import PrivateRoute from './PrivateRouter/PrivateRouter';
-import ShowDatials from './Componant/ShowDatials/ShowDatials';
+import Toyse from './Componant/Toyse/Toyse';
 
 
 
@@ -64,10 +64,14 @@ const router = createBrowserRouter([
         element:<AllToys></AllToys>
       },
       {
-        path:'ShowDatials/:id',
-        element:<ShowDatials></ShowDatials>,
-        loader:({params})=>(`https://assingment-11-serversit-yahiamasud.vercel.app/toyCar/${params.id}`)
-      }
+        path:'Toyse',
+        element:<Toyse></Toyse>
+      },
+      // {
+      //   path:'ShowCord/:id',
+      //   element:<ShowCord></ShowCord>,
+      //   loader:({params})=>(`https://assingment-11-serversit-yahiamasud.vercel.app/toyCar/${params.id}`)
+      // }
     ]
   },
 ]);
