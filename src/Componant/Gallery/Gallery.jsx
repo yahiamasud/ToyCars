@@ -1,38 +1,27 @@
-import img from '/public/png-transparent-error-404-404-error-thumbnail.png'
+import { useEffect, useState } from "react";
+import './Galler.css'
+
 const Gallery = () => {
+    
+    const [Photos, setPhotos] = useState([]);
+    useEffect(() =>{
+        fetch('http://localhost:5000/Gallary')
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data);
+                setPhotos(data);
+            })
+    }, [])
+    
     return (
-        <div className='m-5'>
-            <h1 className='text-5xl font-bold text-center m-9'>Toy Carall</h1>
-            <div className='flex gap-3'>
-                <div className="card w-96 bg-base-100 shadow-xl">
-                    <div className="card-body">
-                        <h2 className="card-title">Shoes!</h2>
-                        <p>If a dog chews shoes whose shoes does he choose?</p>
-                    </div>
-                    <figure><img src={img} alt="Shoes" /></figure>
-                </div>
-                <div className="card w-96 bg-base-100 shadow-xl">
-                    <div className="card-body">
-                        <h2 className="card-title">Shoes!</h2>
-                        <p>If a dog chews shoes whose shoes does he choose?</p>
-                    </div>
-                    <figure><img src={img} alt="Shoes" /></figure>
-                </div>
-                <div className="card w-96 bg-base-100 shadow-xl">
-                    <div className="card-body">
-                        <h2 className="card-title">Shoes!</h2>
-                        <p>If a dog chews shoes whose shoes does he choose?</p>
-                    </div>
-                    <figure><img src={img} alt="Shoes" /></figure>
-                </div>
-                <div className="card w-96 bg-base-100 shadow-xl">
-                    <div className="card-body">
-                        <h2 className="card-title">Shoes!</h2>
-                        <p>If a dog chews shoes whose shoes does he choose?</p>
-                    </div>
-                    <figure><img src={img} alt="Shoes" /></figure>
-                </div>
+        <div>
+            <h1 className="font-bold text-5xl text-center m-10">Toy-Car </h1>
+            <div className="grid grid-cols-1 gap-3 m-5  md:grid-cols-4">
+                {
+                    Photos.map( Photo =><img className="imgPhoto " src={Photo.Photo} alt=""/>)
+                }
             </div>
+
         </div>
 
     );

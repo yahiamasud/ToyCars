@@ -1,5 +1,4 @@
-import React from 'react';
-import Login from '../Login/Login';
+import React from 'react'
 import Bannar from '../Bannar/Bannar';
 import Gallery from '../Gallery/Gallery';
 import Tabs from '../Tabs/Tabs';

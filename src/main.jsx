@@ -22,6 +22,7 @@ import Toyse from './Componant/Toyse/Toyse';
 
 
 
+
 const router = createBrowserRouter([
   {
     path:"/",
@@ -67,6 +68,8 @@ const router = createBrowserRouter([
         path:'Toyse',
         element:<Toyse></Toyse>
       },
+      
+    
       // {
       //   path:'ShowCord/:id',
       //   element:<ShowCord></ShowCord>,

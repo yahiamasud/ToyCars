@@ -2,6 +2,7 @@ import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProviders';
 import './head.css'
+import img from '/public/ldp_plugin-wpml.png'
 
 
 const Header = () => {
@@ -12,7 +13,7 @@ const Header = () => {
     }
     console.log(user)
     return (
-        <div className="navbar bg-yellow-400">
+        <div className="navbar bg-sky-400">
             <div className="navbar-start">
 
                 <div className="dropdown">
@@ -30,7 +31,7 @@ const Header = () => {
                         <li><Link to="/Blogs" className='font-bold'>Blogs</Link></li>
                     </ul>
                 </div>
-                <a className="btn btn-ghost  normal-case  text-xl">Core</a>
+                <img className='img-nav' src={img} alt="" />
             </div>
 
             <div className="navbar-center hidden lg:flex">
