@@ -1,66 +1,63 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../../providers/AuthProviders';
+import MyTable from '../MyTable/MyTable';
 
 const MyToys = () => {
+
     const { user } = useContext(AuthContext)
-    const { myToy, setMyToy } = useState([])
-    useEffect(()=> {
-        fetch(`https://assingment-11-serversit-yahiamasud.vercel.app//myToy/${user?.email}`)
+    const [myToy, setMyToy] = useState([])
+    const _id = myToy;
+    const url = `https://assingment-11-serversit-yahiamasud.vercel.app/myToy?email=${user?.email}`
+    useEffect(() => {
+        fetch(url)
             .then((res) => res.json())
-            .then((data) => setMyToy(data))
-    }, [user])
-    console.log(myToy)
+            .then((data) => {
+                // console.log(data);
+                setMyToy(data)
+            })
+    }, [ ])
+    console.log(_id)
+
+    const handleDalate = id =>{
+        const proceed = confirm("are you sure you want to dataled");
+        if(proceed){
+            fetch(`https://assingment-11-serversit-yahiamasud.vercel.app/toyCar/${id}`,{
+                method:"DELETE"
+            })
+            .then(res=>res.json())
+            .then(data =>{
+                if (data.deletedCount > 0){
+                    alert("delete ok")
+                    const  remaining =toyCar.filter(toyCar._id !== id);
+                    setMyToy(remaining);
+                }
+            })
+        }
+    }
+    // console.log(myToy)
+    // console.log(data)
     return (
-        <div>
-            <div className="my-jobs-container">
-                <h1 className="text-center p-4 ">ALL My Jobs</h1>
-                {/* <div className="search-box p-2 text-center">
-                    <input
-                        onChange={(e) => setSearchText(e.target.value)}
-                        type="text"
-                        className="p-1"
-                    />{" "}
-                    <button onClick={handleSearch}>Search</button>
-                </div> */}
-                <table striped bordered hover className="container">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>name</th>
-                            <th>email</th>
-                            <th>price</th>
-                            <th>rating</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {myToy?.map((myTo, index) => (
-                            <tr>
-                                <td>{index + 1}</td>
-                                <td>{myTo.name}</td>
-                                <td>{myTo.email}</td>
-                                <td>{myTo.price}</td>
-                                <td>{myTo.rating}</td>
-                                <td>
-                                    {/* <Button variant="primary" onClick={() => setModalShow(true)}>
-                                        Edit
-                                    </Button>
-                                    <UpdateJobModal
-                                        show={modalShow}
-                                        onHide={() => setModalShow(false)}
-                                        job={job}
-                                        handleJobUpdate={handleJobUpdate}
-                                    /> */}
-                                </td>
-                                <td>
-                                    {" "}
-                                    <button>Delete</button>
-                                </td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
-            </div>
+        <div className="container mx-auto p-20">
+            <h1 className="text-center text-white font-bold text-5xl m-5 p-4 ">My Post toyCar </h1>
+            <table striped bordered hover className=" text-center text-white w-full">
+                <thead className=''>
+                    <tr className='border-b-2'  >
+                        <th>#</th>
+                        <th>Photo</th>
+                        <th>name</th>
+                        <th>email</th>
+                        <th>price</th>
+                        <th>rating</th>
+                        <th>update</th>
+                        <th>Deleted</th>
+                    </tr>
+                </thead>
+                <tbody className=''>
+                    {myToy?.map((myTo , index )=><MyTable index={index} myTo={myTo} handleDalate = {handleDalate}></MyTable>)}
+                </tbody>
+            </table>
         </div>
     );
 };
