@@ -17,7 +17,7 @@ const News = () => {
            <h1 className="text-5xl text-white font-bold">Join us</h1>
             <p className="text-2xl  text-white font-bold">Those who work with us</p>
            </div>
-            <div className="grid grid-cols-2 md:grid-cols-6 gap-3" >
+            <div className="grid grid-cols-2 md:grid-cols-6 justify-items-center gap-3" >
                 {
                     Photos.map(Photo => <img className="imgPhot " src={Photo.
                         picture_url} alt="" />)

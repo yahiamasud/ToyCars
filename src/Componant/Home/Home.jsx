@@ -3,6 +3,7 @@ import Bannar from '../Bannar/Bannar';
 import Gallery from '../Gallery/Gallery';
 import News from '../News/News';
 import Tabse from '../Tabse/Tabse'
+import TextBox from '../TextBox/TextBox';
 
 const Home = () => {
     return (
@@ -11,6 +12,7 @@ const Home = () => {
            <Gallery></Gallery>
            <News></News>
            <Tabse></Tabse>
+           <TextBox></TextBox>
         </div>
     );
 };
