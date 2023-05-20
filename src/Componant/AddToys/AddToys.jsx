@@ -37,11 +37,11 @@ const AddToys = () => {
 
     return (
         <div>
-            <div className=" pb-5 bg-base-200">
+            <div className=" pb-5 ">
                 <div className='Box mx-auto p-10' >
-                    <h1 className='text-5xl font-bold text-center p-5'>Add ToyCar</h1>
+                    <h1 className='text-5xl font-bold text-white  text-center pb-9'>Add ToyCar</h1>
                     <div className=" card flex-shrink-0 shadow-2xl bg-base-100">
-                        <Form onSubmit={handlePost} className="card-body grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
+                        <Form onSubmit={handlePost} className="card-body grid bg-cyan-100 rounded  grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Name</span>
@@ -100,6 +100,12 @@ const AddToys = () => {
 
                             <div className=" mx-auto mt-6">
                             <button className="btn btn-block">Add Toysar</button>
+                            </div>
+                            <div className=" mx-auto mt-6">
+                                <Link to={"/MyToys"}>
+                                <button className="btn btn-block">Back MyToy</button>
+                                </Link>
+                           
                             </div>
                         </Form>
                         

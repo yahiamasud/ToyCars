@@ -14,7 +14,7 @@ const Gallery = () => {
     }, [])
     
     return (
-        <div>
+        <div className="border-b divide-black m-5 pb-6">
             <h1 className="font-bold text-5xl text-center text-white m-10">Toy-Car </h1>
             <div className="grid grid-cols-1 gap-3 m-5  md:grid-cols-4">
                 {

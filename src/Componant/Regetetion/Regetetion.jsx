@@ -46,11 +46,11 @@ const Regetetion = () => {
             });
     }
     return (
-        <div className=" pb-5 bg-base-200">
+        <div className=" pb-5 ">
             <div className='Box mx-auto p-10' >
-                <h1 className='text-5xl font-bold text-center p-5'>REGESTETION</h1>
+                <h1 className='text-5xl font-bold text-center text-white p-5'>REGESTETION</h1>
                 <div className=" card flex-shrink-0 shadow-2xl bg-base-100">
-                    <Form onSubmit={handleSingUp} className="card-body">
+                    <Form onSubmit={handleSingUp} className="card-body bg-cyan-100  rounded">
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Name</span>
@@ -86,7 +86,7 @@ const Regetetion = () => {
                                 <p className='text-red-500'>{error}</p>
                             </label>
                         <div className="form-control mt-6">
-                            <button className="btn normal-case">SingUp</button>
+                            <button className="btn btn-primary normal-case">SingUp</button>
                         </div>
                     </Form>
                     <label className="label">

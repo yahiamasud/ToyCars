@@ -7,11 +7,6 @@ import Login from './Componant/Login/Login'
 import Regetetion from './Componant/Regetetion/Regetetion'
 import './index.css'
 import AuthProviders from './providers/AuthProviders';
-
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
 import Blogs from './Componant/Blogs/Blogs';
 import MyToys from './Componant/MyToys/MyToys';
 import AddToys from './Componant/AddToys/AddToys';
@@ -20,6 +15,13 @@ import PrivateRoute from './PrivateRouter/PrivateRouter';
 import Toyse from './Componant/Toyse/Toyse';
 import AllShow from './Componant/AllShow/AllShow';
 import Error from './Error/Error';
+
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+
+
 
 
 
@@ -74,7 +76,8 @@ const router = createBrowserRouter([
         path:"AllShow/:id",
         element:<PrivateRoute><AllShow></AllShow></PrivateRoute> ,
         loader: ({params})=>fetch(`https://assingment-11-serversit-yahiamasud.vercel.app/toyCar/${params.id}`)
-      }
+      },
+      
     ]
   },
 ]);

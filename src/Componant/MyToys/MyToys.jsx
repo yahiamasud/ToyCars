@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../../providers/AuthProviders';
 import MyTable from '../MyTable/MyTable';
@@ -7,7 +6,13 @@ import MyTable from '../MyTable/MyTable';
 const MyToys = () => {
 
     const { user } = useContext(AuthContext)
+
     const [myToy, setMyToy] = useState([])
+    const [control, setControl]= useState(false)
+
+
+// data loading..............................
+
     const url = `https://assingment-11-serversit-yahiamasud.vercel.app/myToy?email=${user?.email}`
     useEffect(() => {
         fetch(url)
@@ -16,9 +21,9 @@ const MyToys = () => {
                 // console.log(data);
                 setMyToy(data)
             })
-    }, [])
+    }, [url, control])
     
-
+// deleted.......................
     const handleDalate = id =>{
         const proceed = confirm("are you sure you want to dataled");
         if(proceed){
@@ -28,12 +33,29 @@ const MyToys = () => {
             .then(res=>res.json())
             .then(data =>{
                 if (data.deletedCount > 0){
-                    alert("Delete Confiorm ok now ")
-                    const  remaining =toyCar.filter(toyCar._id !== id);
+                    const  remaining = toyCar.filter(toyCar._id !== id);
                     setMyToy(remaining);
+                    setControl(!control);
+                    
                 }
             })
         }
+    }
+// updata ...........................
+    const handleUpdate=(data)=>{
+        fetch(`https://assingment-11-serversit-yahiamasud.vercel.app/toyCar/${data._id}`,{
+            method: "PUT",
+            headers: {"Content-Type":"application/json"},
+            body:JSON.stringify(data),
+        })
+        .then((res)=> res.json())
+        .then((result)=>{
+            if(result.modifieCount > 0){
+                setControl(!control)
+                alert("updat ok")
+            }
+            console.log(result);
+        })
     }
     // console.log(myToy)
     // console.log(data)
@@ -54,7 +76,7 @@ const MyToys = () => {
                     </tr>
                 </thead>
                 <tbody className=''>
-                    {myToy?.map((myTo , index )=><MyTable index={index} myTo={myTo} handleDalate = {handleDalate}></MyTable>)}
+                    {myToy?.map((myTo , index )=><MyTable index={index} myTo={myTo} handleUpdate={handleUpdate} handleDalate = {handleDalate}></MyTable>)}
                 </tbody>
             </table>
         </div>

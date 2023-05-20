@@ -57,12 +57,12 @@ const Login = () => {
     }
     
     return (
-        <div className=" bg-base-200">
+        <div className="">
 
             <div className='Box p-10 mx-auto' >
-                <h1 className='text-5xl font-bold text-center m-2'>LOGING</h1>
+                <h1 className='text-5xl font-bold text-center text-white p-5'>LOGING</h1>
                 <div className="card flex-shrink-0 w-full  shadow-2xl bg-base-100">
-                    <Form onSubmit={handlelogin} className="card-body">
+                    <Form onSubmit={handlelogin} className="card-body bg-cyan-100 rounded">
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Email</span>
@@ -80,10 +80,10 @@ const Login = () => {
                             </label>
                         </div>
                         <div className="form-control ">
-                            <button className="btn  normal-case mx-12" type="submit">Login</button>
+                            <button className="btn btn-primary  normal-case mx-12" type="submit">Login</button>
                         </div>
                         <div className="form-control ">
-                            <button onClick={handleGoogleSingIn} className="btn  mx-12 normal-case " type="button" >  <span className='mx-2'><BsGoogle /></span> Google_SingIn</button>
+                            <button onClick={handleGoogleSingIn} className="btn btn-primary  mx-12 normal-case " type="button" >  <span className='mx-2'><BsGoogle /></span> Google_SingIn</button>
                         </div>
                     </Form>
                     <label className="label">
