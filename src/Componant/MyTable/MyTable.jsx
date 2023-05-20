@@ -1,17 +1,32 @@
 import { Form, Link } from "react-router-dom";
 import "./MyTable.css"
 
+const MyTable = ({ myTo, handleDalate, index }) => {
 
-const MyTable = ({ myTo, handleDalate, handleUpdate, index }) => {
-    const { picture_url, name,subcategory,description, email, price, rating, _id } = myTo;
+    const { picture_url, name, subcategory, description, email, price, rating, _id } = myTo;
 
- const data = {_id};
-    // event.preventDefault();
-    // const Form = event.target;
-    // const subcategory =  Form.subcategory.value
-    // const description = Form.description.value;
-    // const price = Form.price.value;
-   
+    const handleUpdate = (event) => {
+        event.preventDefault();
+        const Form = event.target;
+        const {_id}= myTo;
+        const subcategory = Form.subcategory.value;
+        const description = Form.description.value;
+        const price = Form.price.value;
+        const addItems ={ description, price, subcategory,_id };
+        console.log(addItems);
+        fetch(`https://assingment-11-serversit-yahiamasud.vercel.app/toyCar/${addItems?._id}`, {
+            method:"PUT",
+            headers: { "Content-Type":"application/json" },
+            body: JSON.stringify(addItems),
+        })
+            .then((res) => res.json())
+            .then((result) => {
+                console.log(result)
+                // if (result.modifieCount > 0) {
+                //     alert("updat ok")
+                // }
+            })
+    }
     return (
         <tr>
             <td>{index + 1}</td>
@@ -22,7 +37,7 @@ const MyTable = ({ myTo, handleDalate, handleUpdate, index }) => {
             <td>{rating}</td>
             <td>
                 <label htmlFor="my-modal-5" className="btn btn-primary">Eidet</label>
-            
+
                 <input type="checkbox" id="my-modal-5" className="modal-toggle" />
                 <div className="modal">
                     <div className="modal-box w-11/12 max-w-5xl">
@@ -31,7 +46,7 @@ const MyTable = ({ myTo, handleDalate, handleUpdate, index }) => {
                                 <div className='Box mx-auto ' >
                                     <h1 className='text-5xl font-bold bg-slate-700  text-center p-2'>UpDate Toy</h1>
                                     <div className=" card flex-shrink-0 shadow-2xl bg-base-100">
-                                        <Form className="bg-sky-500 p-5">
+                                        <Form onSubmit={handleUpdate} className="bg-sky-500 p-5">
                                             <div className="form-control">
                                                 <label className="label">
                                                     <span className="label-text">price</span>
@@ -50,14 +65,15 @@ const MyTable = ({ myTo, handleDalate, handleUpdate, index }) => {
                                                 </label>
                                                 <input type="text" defaultValue={description} placeholder=" Datais description" name='description' className="input text-black input-bordered" required />
                                             </div>
+                                            <div className="modal-action">
+                                                <button type="submit">updata</button>
+                                            </div>
                                         </Form>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div className="modal-action">
-                            <label htmlFor="my-modal-5"  onSubmit={()=>handleUpdate(data)} className="btn btn-primary">Update</label>
-                        </div>
+
                     </div>
                 </div>
 

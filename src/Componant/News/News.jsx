@@ -7,7 +7,7 @@ const News = () => {
         fetch('https://assingment-11-serversit.vercel.app/newsAdd')
             .then((res) => res.json())
             .then((data) => {
-                console.log(data);
+                // console.log(data);
                 setPhotos(data);
             })
     }, [])

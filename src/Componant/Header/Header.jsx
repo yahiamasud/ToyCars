@@ -40,7 +40,7 @@ const Header = () => {
                     <li><Link to="/AllToys" className='font-bold'>All Toys</Link></li>
                     {
                         user ? <ul className='flex '> <li><Link to="/MyToys" className='font-bold'>My Toys</Link></li>
-                            <li><Link to="/AddToys" className='font-bold'>Add Toys</Link></li></ul> : <div></div>
+                            <li><Link to="/AddToys" className='font-bold '>Add Toys</Link></li></ul> : <div></div>
                     }
                     <li><Link to="/Blogs" className='font-bold'>Blogs</Link></li>
                 </ul>

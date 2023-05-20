@@ -13,7 +13,7 @@ const AllToys = () => {
     console.log(Toys);
     return (
 
-        <div className=''>
+        <div className=' text-center m-5'>
             <h1 className='text-5xl font-bold text-white text-center m-5'>all ToysCar</h1>
             <div className='grid text-white gird-cols-1 '>
                 <table striped bordered hover className="text-center m-7 mx-auto gap-10 container ">
@@ -46,6 +46,11 @@ const AllToys = () => {
                     </tbody>
                 </table>
 
+            </div>
+            <div className=" btn-group">
+                <button className="btn btn-primary">«</button>
+                <button className="btn btn-primary">Page 20</button>
+                <button className="btn btn-primary">»</button>
             </div>
         </div>
 

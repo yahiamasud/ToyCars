@@ -42,21 +42,23 @@ const MyToys = () => {
         }
     }
 // updata ...........................
-    const handleUpdate=(data)=>{
-        fetch(`https://assingment-11-serversit-yahiamasud.vercel.app/toyCar/${data._id}`,{
-            method: "PUT",
-            headers: {"Content-Type":"application/json"},
-            body:JSON.stringify(data),
-        })
-        .then((res)=> res.json())
-        .then((result)=>{
-            if(result.modifieCount > 0){
-                setControl(!control)
-                alert("updat ok")
-            }
-            console.log(result);
-        })
-    }
+    // const handleUpdate=(even)=>{
+        
+    //     fetch(`https://assingment-11-serversit-yahiamasud.vercel.app/toyCar/${data._id}`,{
+    //         method: "PUT",
+    //         headers: {"Content-Type":"application/json"},
+    //         body:JSON.stringify(data),
+    //     })
+    //     .then((res)=> res.json())
+    //     .then((result)=>{
+    //         if(result.modifieCount > 0){
+    //             setControl(!control)
+    //             alert("updat ok")
+    //         }
+    //         console.log(result);
+    //     })
+        
+    // }
     // console.log(myToy)
     // console.log(data)
     return (
@@ -76,7 +78,7 @@ const MyToys = () => {
                     </tr>
                 </thead>
                 <tbody className=''>
-                    {myToy?.map((myTo , index )=><MyTable index={index} myTo={myTo} handleUpdate={handleUpdate} handleDalate = {handleDalate}></MyTable>)}
+                    {myToy?.map((myTo , index )=><MyTable index={index} myTo={myTo}  handleDalate = {handleDalate}></MyTable>)}
                 </tbody>
             </table>
         </div>
