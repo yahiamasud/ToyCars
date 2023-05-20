@@ -1,10 +1,10 @@
 import { Form, Link } from "react-router-dom";
 import "./MyTable.css"
-import { useState } from "react";
 
 const MyTable = ({ myTo, handleDalate, index }) => {
 
     const [control, setControl]= useState(false)
+
     const { picture_url, name, subcategory, description, email, price, rating, _id } = myTo;
 
     const handleUpdate = (event) => {

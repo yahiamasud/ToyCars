@@ -15,6 +15,7 @@ import PrivateRoute from './PrivateRouter/PrivateRouter';
 import Toyse from './Componant/Toyse/Toyse';
 import AllShow from './Componant/AllShow/AllShow';
 import Error from './Error/Error';
+import ShowCatagori from './Componant/ShowCatagori/ShowCatagori'
 
 import {
   createBrowserRouter,
@@ -77,6 +78,21 @@ const router = createBrowserRouter([
         element:<PrivateRoute><AllShow></AllShow></PrivateRoute> ,
         loader: ({params})=>fetch(`https://assingment-11-serversit-yahiamasud.vercel.app/toyCar/${params.id}`)
       },
+      {
+        path:'ShowCatagori/:id',
+        element:<PrivateRoute><ShowCatagori></ShowCatagori></PrivateRoute>,
+        loader: ({params})=>fetch(`https://assingment-11-serversit-yahiamasud.vercel.app/items1/${params.id}`)
+      },
+      {
+        path:'ShowCatagori/:id',
+        element:<PrivateRoute><ShowCatagori></ShowCatagori></PrivateRoute>,
+        loader: ({params})=>fetch(`https://assingment-11-serversit-yahiamasud.vercel.app/items2/${params.id}`)
+      },
+      {
+        path:'ShowCatagori/:id',
+        element:<PrivateRoute><ShowCatagori></ShowCatagori></PrivateRoute>,
+        loader: ({params})=>fetch(`https://assingment-11-serversit-yahiamasud.vercel.app/items3/${params.id}`)
+      }
       
     ]
   },
