@@ -6,7 +6,6 @@ import MyTable from '../MyTable/MyTable';
 const MyToys = () => {
 
     const { user } = useContext(AuthContext)
-
     const [myToy, setMyToy] = useState([])
     const [control, setControl]= useState(false)
 
@@ -21,7 +20,7 @@ const MyToys = () => {
                 // console.log(data);
                 setMyToy(data)
             })
-    }, [url, control])
+    }, [url,control])
     
 // deleted.......................
     const handleDalate = id =>{
@@ -31,9 +30,9 @@ const MyToys = () => {
                 method:"DELETE"
             })
             .then(res=>res.json())
-            .then(data =>{
+            .then((data) =>{
                 if (data.deletedCount > 0){
-                    const  remaining = toyCar.filter(toyCar._id !== id);
+                    const remaining = toyCar.filter(toyCar._id !== id);
                     setMyToy(remaining);
                     setControl(!control);
                     
@@ -41,26 +40,7 @@ const MyToys = () => {
             })
         }
     }
-// updata ...........................
-    // const handleUpdate=(even)=>{
-        
-    //     fetch(`https://assingment-11-serversit-yahiamasud.vercel.app/toyCar/${data._id}`,{
-    //         method: "PUT",
-    //         headers: {"Content-Type":"application/json"},
-    //         body:JSON.stringify(data),
-    //     })
-    //     .then((res)=> res.json())
-    //     .then((result)=>{
-    //         if(result.modifieCount > 0){
-    //             setControl(!control)
-    //             alert("updat ok")
-    //         }
-    //         console.log(result);
-    //     })
-        
-    // }
-    // console.log(myToy)
-    // console.log(data)
+
     return (
         <div className="container mx-auto p-20">
             <h1 className="text-center text-white font-bold text-5xl m-5 p-4 ">My Post toyCar </h1>
@@ -69,10 +49,10 @@ const MyToys = () => {
                     <tr className='border-b-2'  >
                         <th>#</th>
                         <th>Photo</th>
-                        <th>name</th>
-                        <th>email</th>
+                        <th>Deatils</th>
                         <th>price</th>
-                        <th>rating</th>
+                        <th>subCatogor</th>
+                        <th>Rating</th>
                         <th>update</th>
                         <th>Deleted</th>
                     </tr>

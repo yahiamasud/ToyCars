@@ -1,39 +1,41 @@
 import { Form, Link } from "react-router-dom";
 import "./MyTable.css"
+import { useState } from "react";
 
 const MyTable = ({ myTo, handleDalate, index }) => {
 
+    const [control, setControl]= useState(false)
     const { picture_url, name, subcategory, description, email, price, rating, _id } = myTo;
 
     const handleUpdate = (event) => {
         event.preventDefault();
         const Form = event.target;
-        const {_id}= myTo;
+        const { _id } = myTo;
         const subcategory = Form.subcategory.value;
         const description = Form.description.value;
         const price = Form.price.value;
-        const addItems ={ description, price, subcategory,_id };
+        const addItems = { description, price, subcategory, _id };
         console.log(addItems);
         fetch(`https://assingment-11-serversit-yahiamasud.vercel.app/toyCar/${addItems?._id}`, {
-            method:"PUT",
-            headers: { "Content-Type":"application/json" },
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
             body: JSON.stringify(addItems),
         })
             .then((res) => res.json())
             .then((result) => {
-                console.log(result)
-                // if (result.modifieCount > 0) {
-                //     alert("updat ok")
-                // }
+                if (result.modifiedCount > 0) {
+                    alert("update done thanks you !!!!")
+                    setControl(!control);
+                }
             })
     }
     return (
         <tr>
             <td>{index + 1}</td>
             <td><img className="imgitemsshow" src={picture_url} alt="" /></td>
-            <td>{name}</td>
-            <td>{email}</td>
+            <td>{description}</td>
             <td>{price}</td>
+            <td>{subcategory}</td>
             <td>{rating}</td>
             <td>
                 <label htmlFor="my-modal-5" className="btn btn-primary">Eidet</label>
@@ -66,14 +68,15 @@ const MyTable = ({ myTo, handleDalate, index }) => {
                                                 <input type="text" defaultValue={description} placeholder=" Datais description" name='description' className="input text-black input-bordered" required />
                                             </div>
                                             <div className="modal-action">
-                                                <button type="submit">updata</button>
+                                                <button type="submit" className="btn btn-primary"><div className="">
+                                                    <label htmlFor="my-modal-5" className="btn">Update</label>
+                                                </div></button>
                                             </div>
                                         </Form>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
 
