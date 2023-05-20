@@ -19,6 +19,7 @@ import AllToys from './Componant/AllToys/AllToys';
 import PrivateRoute from './PrivateRouter/PrivateRouter';
 import Toyse from './Componant/Toyse/Toyse';
 import AllShow from './Componant/AllShow/AllShow';
+import Error from './Error/Error';
 
 
 
@@ -28,6 +29,7 @@ const router = createBrowserRouter([
   {
     path:"/",
     element: <Mainloyout></Mainloyout>,
+    errorElement:<Error></Error>,
     children: [
       {
         path:"/",

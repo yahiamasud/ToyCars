@@ -8,7 +8,6 @@ const MyToys = () => {
 
     const { user } = useContext(AuthContext)
     const [myToy, setMyToy] = useState([])
-    const _id = myToy;
     const url = `https://assingment-11-serversit-yahiamasud.vercel.app/myToy?email=${user?.email}`
     useEffect(() => {
         fetch(url)
@@ -17,7 +16,7 @@ const MyToys = () => {
                 // console.log(data);
                 setMyToy(data)
             })
-    }, [url])
+    }, [])
     
 
     const handleDalate = id =>{
