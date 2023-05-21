@@ -1,11 +1,13 @@
 import { Form, Link } from "react-router-dom";
 import "./MyTable.css"
+import { useState } from "react";
 
 const MyTable = ({ myTo, handleDalate, index }) => {
 
-    const [control, setControl]= useState(false)
+    const {_id}=myTo;
 
-    const { picture_url, name, subcategory, description, email, price, rating, _id } = myTo;
+    const [control, setControl]= useState(true)
+    // const { picture_url, subcategory, description, price, rating, _id } = myTo;
 
     const handleUpdate = (event) => {
         event.preventDefault();
@@ -32,11 +34,11 @@ const MyTable = ({ myTo, handleDalate, index }) => {
     return (
         <tr>
             <td>{index + 1}</td>
-            <td><img className="imgitemsshow" src={picture_url} alt="" /></td>
-            <td>{description}</td>
-            <td>{price}</td>
-            <td>{subcategory}</td>
-            <td>{rating}</td>
+            <td><img className="imgitemsshow" src={myTo?.picture_url} alt="" /></td>
+            <td>{myTo?.description}</td>
+            <td>{myTo?.price}</td>
+            <td>{myTo?.subcategory}</td>
+            <td>{myTo?.rating}</td>
             <td>
                 <label htmlFor="my-modal-5" className="btn btn-primary">Eidet</label>
 
@@ -53,19 +55,19 @@ const MyTable = ({ myTo, handleDalate, index }) => {
                                                 <label className="label">
                                                     <span className="label-text">price</span>
                                                 </label>
-                                                <input type="text" defaultValue={price} placeholder="price" name='price' className="input text-black  input-bordered" required />
+                                                <input type="text" defaultValue={myTo?.price} placeholder="price" name='price' className="input text-black  input-bordered" required />
                                             </div>
                                             <div className="form-control">
                                                 <label className="label">
                                                     <span className="label-text">subcategory</span>
                                                 </label>
-                                                <input type="text" defaultValue={subcategory} placeholder="subcategory" name='subcategory' className="input text-black  input-bordered" required />
+                                                <input type="text" defaultValue={myTo?.subcategory} placeholder="subcategory" name='subcategory' className="input text-black  input-bordered" required />
                                             </div>
                                             <div className="form-control">
                                                 <label className="label">
                                                     <span className="label-text">Datais description</span>
                                                 </label>
-                                                <input type="text" defaultValue={description} placeholder=" Datais description" name='description' className="input text-black input-bordered" required />
+                                                <input type="text" defaultValue={myTo?.description} placeholder=" Datais description" name='description' className="input text-black input-bordered" required />
                                             </div>
                                             <div className="modal-action">
                                                 <button type="submit" className="btn btn-primary"><div className="">

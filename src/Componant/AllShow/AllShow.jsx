@@ -27,7 +27,7 @@ const AllShow = () => {
                     </div>
                     <div className="card-actions justify-end">
                         <Link to={"/AllToys"}>
-                            <button className="btn btn-primary">Buy Now</button>
+                            <button className="btn btn-primary">Back Now</button>
                         </Link>
                     </div>
                 </div>

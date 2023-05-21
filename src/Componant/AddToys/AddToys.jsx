@@ -44,7 +44,7 @@ const AddToys = () => {
                         <Form onSubmit={handlePost} className="card-body grid bg-cyan-100 rounded  grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text">Name</span>
+                                    <span className="label-text">ToyName</span>
                                 </label>
                                 <input type="text" placeholder="name" name='name' className="input input-bordered" required />
                             </div>

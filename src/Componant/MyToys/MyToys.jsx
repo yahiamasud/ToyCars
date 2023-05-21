@@ -19,6 +19,7 @@ const MyToys = () => {
             .then((data) => {
                 // console.log(data);
                 setMyToy(data)
+                setControl(!control);
             })
     }, [url,control])
     
