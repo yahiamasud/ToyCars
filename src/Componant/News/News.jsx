@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./new.css"
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 const News = () => {
     const [Photos, setPhotos] = useState([]);
     useEffect(() => {
@@ -19,7 +20,7 @@ const News = () => {
            </div>
             <div className="grid grid-cols-2 md:grid-cols-6 justify-items-center gap-3" >
                 {
-                    Photos.map(Photo => <img className="imgPhot " src={Photo.
+                    Photos.map(Photo => <img data-aos="flip-up" className="imgPhot " src={Photo.
                         picture_url} alt="" />)
                 }
             </div>

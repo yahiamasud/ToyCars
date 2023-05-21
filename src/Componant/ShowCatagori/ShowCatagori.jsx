@@ -1,11 +1,13 @@
 import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import './show.css'
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const ShowCatagori = () => {
     const items = useLoaderData();
     return (
-        <div className='m-5'>
+        <div className='m-5' data-aos="flip-up" >
             <div className="card  bg-base-100 shadow-xl">
                 <figure><img className='imgviwe' src={items.photo} alt="Shoes" /></figure>
                 <div className="card-body">
