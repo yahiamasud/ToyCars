@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import './Allshow.css'
-import {FaStar} from 'react-icons/fa';
+import { FaStar } from 'react-icons/fa';
 
 const AllShow = () => {
     const items = useLoaderData();
-    const { name, picture_url,seller_name,email,rating, subcategory } = items;
+    const { name, picture_url, seller_name, email, rating, subcategory } = items;
     console.log(name);
     return (
         <div className='m-5 rounded'>
@@ -17,13 +17,17 @@ const AllShow = () => {
                     <p>Seller Gmail:-{email}</p>
                     <p>SubcateGory{subcategory}</p>
                     <div className='flex'>
-                        {
-                            [...Array(5)].map(star=><FaStar size={50}>{rating}</FaStar>)
-                        }
+                        <div className="rating">
+                            <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
+                            <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" checked />
+                            <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
+                            <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
+                            <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
+                        </div>
                     </div>
                     <div className="card-actions justify-end">
                         <Link to={"/AllToys"}>
-                        <button className="btn btn-primary">Buy Now</button>
+                            <button className="btn btn-primary">Buy Now</button>
                         </Link>
                     </div>
                 </div>
